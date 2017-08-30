@@ -11,7 +11,11 @@
 		<servlet-class>cn.ljj.ConfigServlet</servlet-class>
 		<init-param>
 			<param-name>log4j-init-file</param-name>
-			<param-value>\WEB-INF\classes\log4j.properties</param-value>
+			<param-value>/WEB-INF/classes/log4j.properties</param-value>
+		</init-param>
+		<init-param>
+			<param-name>rsa-file</param-name>
+			<param-value>/WEB-INF/classes/rsa</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>

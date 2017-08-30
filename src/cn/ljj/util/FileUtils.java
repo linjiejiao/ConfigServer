@@ -13,6 +13,8 @@ import java.util.Map;
 import java.util.Set;
 
 public class FileUtils {
+    private static final String TAG = FileUtils.class.getSimpleName();
+
     public static String getFileString(String path) {
         File file = new File(path);
         if (!file.exists()) {
@@ -21,6 +23,7 @@ public class FileUtils {
         try {
             return getStringFromStream(new FileInputStream(file));
         } catch (FileNotFoundException e) {
+            Logger.e(TAG, "getFileString: " + path, e);
             e.printStackTrace();
         }
         return null;
@@ -35,6 +38,7 @@ public class FileUtils {
             inputStream.close();
             str = new String(buffer);
         } catch (IOException e) {
+            Logger.e(TAG, "getStringFromStream: " + inputStream, e);
             e.printStackTrace();
             return null;
         }
@@ -63,12 +67,14 @@ public class FileUtils {
                     configs.put(key, value);
                 }
             } catch (Exception e) {
+                Logger.e(TAG, "getConfigs: " + configFile, e);
                 e.printStackTrace();
             } finally {
                 if (br != null) {
                     try {
                         br.close();
                     } catch (IOException e) {
+                        Logger.e(TAG, "getConfigs close: " + configFile, e);
                         e.printStackTrace();
                     }
                 }
@@ -90,12 +96,14 @@ public class FileUtils {
                 }
             }
         } catch (Exception e) {
+            Logger.e(TAG, "saveConfigTofile: " + configFile, e);
             e.printStackTrace();
         } finally {
             if (writer != null) {
                 try {
                     writer.close();
                 } catch (IOException e) {
+                    Logger.e(TAG, "saveConfigTofile close: " + configFile, e);
                     e.printStackTrace();
                 }
             }

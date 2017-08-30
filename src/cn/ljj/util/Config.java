@@ -47,7 +47,7 @@ public class Config {
         configMap.put(key, value);
         Map<String, String> config = FileUtils.getConfigs(getConfigPath());
         config.put(key, value);
-        FileUtils.saveConfigTofile(config, "config.ini");
+        FileUtils.saveConfigTofile(config, getConfigPath());
     }
 
 }
