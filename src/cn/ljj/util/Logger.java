@@ -9,19 +9,11 @@ public class Logger {
     private static int currentLogLevel = LOG_LEVEL_DEBUG;
 
     public static int d(String tag, String msg) {
-        msg = tag + ": " + msg;
-        System.out.println(msg);
-        if (LOG_LEVEL_DEBUG < currentLogLevel) {
-            return 0;
-        }
-        org.apache.log4j.Logger logger = org.apache.log4j.Logger.getRootLogger();
-        logger.debug(msg);
-        return 1;
+        return d(tag, msg, null);
     }
 
     public static int d(String tag, String msg, Throwable tr) {
         msg = tag + ": " + msg;
-        System.out.println(msg);
         if (tr != null) {
             tr.printStackTrace();
         }
@@ -34,19 +26,11 @@ public class Logger {
     }
 
     public static int i(String tag, String msg) {
-        msg = tag + ": " + msg;
-        System.out.println(msg);
-        if (LOG_LEVEL_INFO < currentLogLevel) {
-            return 0;
-        }
-        org.apache.log4j.Logger logger = org.apache.log4j.Logger.getRootLogger();
-        logger.debug(msg);
-        return 1;
+        return i(tag, msg, null);
     }
 
     public static int i(String tag, String msg, Throwable tr) {
         msg = tag + ": " + msg;
-        System.out.println(msg);
         if (tr != null) {
             tr.printStackTrace();
         }
@@ -59,19 +43,11 @@ public class Logger {
     }
 
     public static int w(String tag, String msg) {
-        msg = tag + ": " + msg;
-        System.out.println(msg);
-        if (LOG_LEVEL_WARNING < currentLogLevel) {
-            return 0;
-        }
-        org.apache.log4j.Logger logger = org.apache.log4j.Logger.getRootLogger();
-        logger.debug(msg);
-        return 1;
+        return w(tag, msg, null);
     }
 
     public static int w(String tag, String msg, Throwable tr) {
         msg = tag + ": " + msg;
-        System.out.println(msg);
         if (tr != null) {
             tr.printStackTrace();
         }
@@ -84,19 +60,11 @@ public class Logger {
     }
 
     public static int e(String tag, String msg) {
-        msg = tag + ": " + msg;
-        System.out.println(msg);
-        if (LOG_LEVEL_ERROR < currentLogLevel) {
-            return 0;
-        }
-        org.apache.log4j.Logger logger = org.apache.log4j.Logger.getRootLogger();
-        logger.debug(msg);
-        return 1;
+        return e(tag, msg, null);
     }
 
     public static int e(String tag, String msg, Throwable tr) {
         msg = tag + ": " + msg;
-        System.out.println(msg);
         if (tr != null) {
             tr.printStackTrace();
         }
